@@ -1,4 +1,4 @@
-import dao.BookDAO;
+import service.LibraryService;
 import model.Book;
 
 import java.util.*;
@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        BookDAO bookDAO = new BookDAO();
+        LibraryService libraryService = new LibraryService();
 
         while (true) {
 
@@ -46,13 +46,13 @@ public class Main {
 
                     Book book = new Book(title, author, category, price, quantity);
 
-                    bookDAO.addBook(book);
+                    libraryService.addBook(book);
 
                     break;
 
                 case 2:
 
-                    bookDAO.viewAllBooks();
+                    libraryService.viewAllBooks();
 
                     break;
 
@@ -61,7 +61,7 @@ public class Main {
                     System.out.print("Enter Book ID : ");
                     int searchId = scanner.nextInt();
 
-                    bookDAO.searchBook(searchId);
+                    libraryService.searchBook(searchId);
 
                     break;
 
@@ -88,7 +88,7 @@ public class Main {
 
                     Book updatedBook = new Book(id, title, author, category, price, quantity);
 
-                    bookDAO.updateBook(updatedBook);
+                    libraryService.updateBook(updatedBook);
 
                     break;
 
@@ -97,7 +97,7 @@ public class Main {
                     System.out.print("Enter Book ID : ");
                     int deleteId = scanner.nextInt();
 
-                    bookDAO.deleteBook(deleteId);
+                    libraryService.deleteBook(deleteId);
 
                     break;
 
