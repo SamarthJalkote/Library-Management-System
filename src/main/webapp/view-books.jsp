@@ -19,6 +19,7 @@
         <th>Category</th>
         <th>Price</th>
         <th>Quantity</th>
+        <th>Action</th>
     </tr>
 
     <%
@@ -40,6 +41,12 @@
         <td><%= book.getPrice() %></td>
 
         <td><%= book.getQuantity() %></td>
+
+        <td>
+            <a href="delete-book?id=<%= book.getId() %>">
+                Delete
+            </a>
+        </td>
 
     </tr>
 
