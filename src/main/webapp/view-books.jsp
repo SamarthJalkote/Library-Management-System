@@ -43,9 +43,17 @@
         <td><%= book.getQuantity() %></td>
 
         <td>
+
+            <a href="edit-book?id=<%= book.getId() %>">
+                Edit
+            </a>
+
+            &nbsp;|&nbsp;
+
             <a href="delete-book?id=<%= book.getId() %>">
                 Delete
             </a>
+
         </td>
 
     </tr>

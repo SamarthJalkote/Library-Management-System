@@ -31,4 +31,8 @@ public class LibraryService {
     public List<Book> getAllBooks() {
         return bookDAO.getAllBooks();
     }
+
+    public Book getBookById(int id) {
+        return bookDAO.getBookById(id);
+    }
 }
