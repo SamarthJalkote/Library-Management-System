@@ -2,6 +2,7 @@ package service;
 
 import dao.BookDAO;
 import model.Book;
+import java.util.List;
 
 public class LibraryService {
 
@@ -25,5 +26,9 @@ public class LibraryService {
 
     public void deleteBook(int id) {
         bookDAO.deleteBook(id);
+    }
+
+    public List<Book> getAllBooks() {
+        return bookDAO.getAllBooks();
     }
 }

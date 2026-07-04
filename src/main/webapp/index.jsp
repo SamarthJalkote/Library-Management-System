@@ -7,7 +7,13 @@
 
 <body>
 
-<h1>Welcome to Library Management System</h1>
+<h1>Library Management System</h1>
+
+<a href="add-book.jsp">Add New Book</a>
+
+<br><br>
+
+<a href="view-books">View All Books</a>
 
 </body>
 </html>

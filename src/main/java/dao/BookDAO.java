@@ -7,6 +7,9 @@ package dao;
 import model.Book;
 import util.DBConnection;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import java.sql.*;
 
 public class BookDAO {
@@ -152,5 +155,38 @@ public class BookDAO {
         } catch (SQLException e) {
             System.out.println("Error : " + e.getMessage());
         }
+    }
+
+    public List<Book> getAllBooks() {
+
+        List<Book> books = new ArrayList<>();
+
+        String sql = "SELECT * FROM books";
+
+        try (
+                Connection connection = DBConnection.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                ResultSet resultSet = preparedStatement.executeQuery()
+        ) {
+
+            while (resultSet.next()) {
+
+                Book book = new Book(
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("author"),
+                        resultSet.getString("category"),
+                        resultSet.getDouble("price"),
+                        resultSet.getInt("quantity")
+                );
+
+                books.add(book);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return books;
     }
 }
