@@ -35,4 +35,8 @@ public class LibraryService {
     public Book getBookById(int id) {
         return bookDAO.getBookById(id);
     }
+
+    public List<Book> searchBooks(String keyword) {
+        return bookDAO.searchBooks(keyword);
+    }
 }

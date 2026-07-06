@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.Book" %>
+<%@ include file="navbar.jsp" %>
 
 <html>
 <head>
@@ -8,7 +9,35 @@
 
 <body>
 
+<form action="search-book" method="get">
+
+    <input
+            type="text"
+            name="keyword"
+            placeholder="Search by Title">
+
+    <input
+            type="submit"
+            value="Search">
+
+</form>
+
+<br>
+
 <h1>All Books</h1>
+<%
+    String message = request.getParameter("message");
+
+    if(message != null){
+%>
+
+<p style="color:green;font-weight:bold;">
+    <%= message %>
+</p>
+
+<%
+    }
+%>
 
 <table border="1">
 
@@ -24,6 +53,11 @@
 
     <%
         List<Book> books = (List<Book>) request.getAttribute("books");
+
+        if (books == null) {
+            response.sendRedirect("view-books");
+            return;
+        }
 
         for(Book book : books){
     %>
@@ -50,7 +84,8 @@
 
             &nbsp;|&nbsp;
 
-            <a href="delete-book?id=<%= book.getId() %>">
+            <a href="delete-book?id=<%= book.getId() %>"
+               onclick="return confirm('Are you sure you want to delete this book?')">
                 Delete
             </a>
 
