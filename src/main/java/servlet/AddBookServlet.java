@@ -31,6 +31,6 @@ public class AddBookServlet extends HttpServlet {
 
         libraryService.addBook(book);
 
-        response.sendRedirect("home");
+        response.sendRedirect("view-books?message=Book added successfully");
     }
 }

@@ -22,6 +22,6 @@ public class DeleteBookServlet extends HttpServlet {
 
         libraryService.deleteBook(id);
 
-        response.sendRedirect("view-books");
+        response.sendRedirect("view-books?message=Book deleted successfully");
     }
 }

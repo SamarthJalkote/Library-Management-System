@@ -33,6 +33,6 @@ public class UpdateBookServlet extends HttpServlet {
 
         libraryService.updateBook(book);
 
-        response.sendRedirect("view-books");
+        response.sendRedirect("view-books?message=Book updated successfully");
     }
 }
