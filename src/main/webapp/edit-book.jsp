@@ -1,4 +1,6 @@
+
 <%@ page import="model.Book" %>
+<%@ include file="navbar.jsp" %>
 
 <%
     Book book = (Book) request.getAttribute("book");
